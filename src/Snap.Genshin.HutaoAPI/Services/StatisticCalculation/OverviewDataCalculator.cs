@@ -32,7 +32,7 @@ namespace Snap.Genshin.Website.Services.StatisticCalculation
             {
                 CollectedPlayerCount = collectedPlayerCount,
                 TotalPlayerCount = totalPlayerCount,
-                FullStarPlayerCount = fullStarPassedPlayerCount
+                FullStarPlayerCount = fullStarPassedPlayerCount,
             });
         }
     }

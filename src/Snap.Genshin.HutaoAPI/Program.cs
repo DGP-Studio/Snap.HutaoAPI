@@ -57,13 +57,11 @@ services.AddControllers()
             ValidateIssuerSigningKey = true,
             ValidAudience = jwtConfig.GetValue<string>("Audience"),
             ValidIssuer = jwtConfig.GetValue<string>("Issuer"),
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.GetValue<string>("SecurityKey")))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.GetValue<string>("SecurityKey"))),
         };
     })
     .Services
 
-    // TODO 逐渐废弃Token签发服务
-    .AddScoped<ITokenFactory, FakeTokenFactory>()
     .AddUserSecretManager(options =>
     {
         var config = builder.Configuration.GetSection("UserSecret");
